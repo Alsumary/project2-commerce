@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="hr_title">
+    <hr class="hr left">
+    <div class="title">
+        <h3>Auctions Wins</h3>
+    </div>
+</div>
+
+
+<div class="row mx-3">
+    {% for winnerPage in winnerPages %}
+    {% if not winnerPage.winnerlist.isActive and currentUser == winnerPage.winnerlist.user %}
+        <div class="card mx-3" style="width: 18rem;">
+            <img class="card-img-top" src="{{winnerPage.winnerlist.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{winnerPage.winnerlist.title}}</h5>
+                <p class="card-text">{{winnerPage.winnerlist.content}}</p>
+                {{winnerPage.winnerlist.date_modified}}
+                <br>
+                <div class="link">
+                    <a href="lists/{{winnerPage.winnerlist.id}}" class="btn btn-primaryy">Go to list</a>
+                </div>
+            </div>
+        </div>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}

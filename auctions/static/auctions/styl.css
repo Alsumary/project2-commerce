@@ -1,0 +1,244 @@
+:root {
+    --main-color: #CD8441;
+    --dark-color: #333333;
+    --second-color: #3D3D3D;
+    --text-color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-color);
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--second-color);
+    padding: .9rem;
+    background-color: var(--dark-color);
+    color: var(--text-color)
+}
+
+.nav1 .logo a {
+    text-transform: uppercase;
+    color: var(--text-color)
+}
+
+.nav1 .logo a:hover {
+    text-decoration: none;
+}
+
+.mainbox {
+    padding: 20px;
+    margin: 40px;
+    background-color: var(--second-color);
+    -webkit-box-shadow: -3px 3px 0px 2px rgba(205, 132, 65, 1);
+    -moz-box-shadow: -3px 3px 0px 2px rgba(205, 132, 65, 1);
+    box-shadow: -3px 3px 0px 2px rgba(205, 132, 65, 1);
+    border-radius: 30px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+
+}
+
+.row .card {
+    background-color: var(--dark-color);
+    border-radius: 30px;
+    margin-top: 20px
+}
+
+.card-body .link {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.hr_title {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+    justify-items: start;
+}
+
+.hr {
+    width: 99.7%;
+    border-radius: 100px;
+    border: 2px solid var(--main-color);
+}
+
+.left {
+    margin-left: 0;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+}
+
+.title h3 {
+    border: 2px solid #cd8441;
+    border-radius: 25px;
+    padding: 11px 35px;
+    font-family: 'Bai Jamjuree';
+    font-size: 35px;
+    text-align: center;
+
+}
+
+.btn-primaryy {
+    background: var(--main-color);
+    color: var(--text-color);
+    border: none
+}
+
+.btn-primaryy:hover {
+    background: var(--text-color);
+    color: var(--main-color);
+    border: none
+}
+
+.btn-primaryy:focus {
+    background: var(--text-color);
+    color: var(--main-color);
+    border: none
+}
+
+.btn-primaryy:active {
+    background: var(--text-color);
+    color: var(--main-color);
+    border: none
+}
+
+.card-img-top {
+    border-radius: 30px 30px 0 0;
+}
+
+.cathr {
+    margin-top: 20px;
+    background-color: var(--dark-color);
+    height: 2px;
+    border-radius: 20px;
+}
+
+.nav1 ul li {
+    text-transform: uppercase;
+    font-family: 'Bai Jamjuree';
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nav1 ul li .default {
+    color: var(--text-color);
+    transition: .4s ease;
+}
+
+.nav1 ul li .active {
+    color: var(--main-color);
+}
+
+.nav1 ul li .user {
+    color: var(--main-color);
+    transition: .4s ease;
+}
+
+.nav1 ul li .user:hover {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
+.nav1 ul li .default:hover {
+    text-decoration: none;
+}
+
+
+.nav1 ul .navlink {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.nav1 ul li .default:hover {
+    color: var(--main-color);
+}
+
+.nav1 .link {
+    color: black
+}
+
+.link:hover {
+    color: black;
+    text-decoration: none;
+}
+
+span {
+    color: red
+}
+
+.list {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.list img {
+    width: 800px;
+}
+
+p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+ul {
+    margin-left: 30px;
+}
+
+.badges {
+    font-size: .6em;
+    margin: 5px 0 0 10px
+}
+
+.comment-box {
+    border: 2px solid var(--main-color);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.badge-warning {
+    background-color: var(--main-color);
+    color: var(--text-color)
+}
+
+.comment-box h3 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-weight: bold;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-title {
+    margin-left: 10px
+}

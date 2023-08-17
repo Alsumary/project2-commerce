@@ -1,0 +1,57 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="hr_title">
+    <hr class="hr left">
+    <div class="title">
+        <h3>Create new list</h3>
+    </div>
+</div>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="title">
+        <h5>Title : </h5>
+    </label>
+    <input class="form-control" type="text" id="title" name="title" placeholder="Title" maxlength="40">
+
+    <!------------------------><br><!------------------------>
+
+    <label for="content">
+        <h5>Content : </h5>
+    </label>
+    <textarea class="form-control" id="content" name="content" rows="3" placeholder="Content"
+        maxlength="500"></textarea>
+
+    <!------------------------><br><!------------------------>
+
+    <label for="image">
+        <h5>Image URL : </h5>
+    </label>
+    <input class="form-control" type="text" id="image" name="image" placeholder="imageURL" maxlength="3000">
+
+    <!------------------------><br><!------------------------>
+
+    <label for="price">
+        <h5>Price : </h5>
+    </label>
+    <input class="form-control" type="number" id="price" name="price" placeholder="Price" min="0">
+
+    <!------------------------><br><!------------------------>
+
+    <label for="category">
+        <h5>Category : </h5>
+    </label>
+    <select id="category" name="category" class="form-control">
+        {% for category in categories %}
+        <option value="{{category}}">{{category}}</option>
+        {% endfor %}
+    </select>
+
+    <!------------------------><br><!------------------------>
+
+    <button type="submit" class="btn btn-primaryy">Create New List</button>
+
+</form>
+
+{% endblock %}

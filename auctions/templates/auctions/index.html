@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="hr_title">
+    <hr class="hr left">
+    <div class="title">
+        <h3>{{titleofpage}}</h3>
+    </div>
+</div>
+<!-- <h2>Active Listings</h2> -->
+
+<!-- <label for="category">
+    <h5>Category : </h5>
+</label>
+ <form action="{% url 'displayCategory' %}" method="POST">
+    {%csrf_token%}
+    <select name="category" id="category" class="custom-select custom-select-sm">
+        {% for category in categories %}
+        <option value="{{category}}">{{category}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit" class="btn btn-primaryy btn-sm">Filter</button>
+</form> 
+<div class="cathr"></div> -->
+<div class="row mx-3">
+    {% for list in lists %}
+    {%if list.isActive %}
+    <div class="card mx-3" style="width: 18rem;">
+        <img class="card-img-top" src="{{list.imageUrl}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{list.title}}</h5>
+            <p class="card-text">{{list.content}}</p>
+            {{list.date_modified}}
+            <br>
+            <div class="link">
+                <a href="lists/{{list.id}}" class="btn btn-primaryy">Go to list</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
