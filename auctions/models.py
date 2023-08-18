@@ -21,7 +21,7 @@ class Bid(models.Model):
 
 class Listing(models.Model):
     title = models.CharField(max_length=40)
-    content = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
     imageUrl = models.CharField(max_length=3000)
     price = models.ForeignKey(
         Bid, on_delete=models.CASCADE, blank=True, null=True, related_name="pricebid")

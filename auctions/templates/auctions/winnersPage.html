@@ -11,20 +11,23 @@
 
 <div class="row mx-3">
     {% for winnerPage in winnerPages %}
-    {% if not winnerPage.winnerlist.isActive and currentUser == winnerPage.winnerlist.user %}
+    {% with list=winnerPage.winnerlist %}
+    {% if not list.isActive and currentUser == list.user %}
         <div class="card mx-3" style="width: 18rem;">
-            <img class="card-img-top" src="{{winnerPage.winnerlist.imageUrl}}" alt="Card image cap">
+            <img class="card-img-top" src="{{list.imageUrl}}" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{winnerPage.winnerlist.title}}</h5>
-                <p class="card-text">{{winnerPage.winnerlist.content}}</p>
-                {{winnerPage.winnerlist.date_modified}}
+                <h4 class="card-title">{{list.title}}</h4>
+                <h6 class="card-title">${{list.price.bid}}</h6>
+                <p class="card-text">{{list.description}}</p>
+                {{list.date_modified}}
                 <br>
                 <div class="link">
-                    <a href="lists/{{winnerPage.winnerlist.id}}" class="btn btn-primaryy">Go to list</a>
+                    <a href="../lists/{{list.id}}" class="btn btn-primaryy">Go to list</a>
                 </div>
             </div>
         </div>
 {% endif %}
+{% endwith %}
 {% endfor %}
 </div>
 {% endblock %}

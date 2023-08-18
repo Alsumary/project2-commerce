@@ -43,7 +43,7 @@ def createListing(request):
     categories = Category.objects.all()
     if request.method == "POST":
         title = request.POST['title']
-        content = request.POST['content']
+        description = request.POST['description']
         image = request.POST['image']
         price = request.POST['price']
         categoryselect = request.POST['category']
@@ -53,7 +53,7 @@ def createListing(request):
         bid.save()
         Listing.date_modified = datetime.now()
 
-        inh = Listing(title=title, content=content, imageUrl=image, price=bid,
+        inh = Listing(title=title, description=description, imageUrl=image, price=bid,
                       seller=currentUser, category=categoryD, date_modified=datetime.now())
         inh.save()
 
@@ -113,14 +113,12 @@ def addBid(request, id):
         updateBid.save()
         mainlist.price = updateBid
         mainlist.save()
-        color = 'success'
         return render(request, 'auctions/list.html', {
             "mainlist": mainlist,
             "message": "Successful Buy",
             "update": True,
         })
     else:
-        color = 'danger'
         return render(request, 'auctions/list.html', {
             "mainlist": mainlist,
             "message": "Failed Buy",
@@ -146,14 +144,13 @@ def closeBid(request, id):
     currentUser = request.user
     isListInWatchlist = request.user in mainlist.watchlist.all()
     comments = Comments.objects.all()
-    color = 'success'
     return render(request, "auctions/list.html", {
         'currentUser': currentUser,
         'mainlist': mainlist,
         'id': id,
         'isListInWatchlist': isListInWatchlist,
         'comments': comments,
-        'alert': color,
+        'update': True,
         "message": "Successful the bid been closed"
     })
 

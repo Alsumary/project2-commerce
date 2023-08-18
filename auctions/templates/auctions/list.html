@@ -23,6 +23,7 @@
   Congratulations! You won the Auction
 </div>
 {%endif%}
+{% if user.is_authenticated %}
 {% if isListInWatchlist %}
 <form action="{%url 'removeWatchlist' id=mainlist.id %}" method="POST">
   {%csrf_token%}
@@ -34,15 +35,18 @@
   <button type="submit" class="btn btn-success">Add in Watchlist</button>
 </form>
 {%endif%}
+{%endif%}
+
 
 <div class="list">
   <img src="{{mainlist.imageUrl}}" alt="">
 </div>
-<p>{{mainlist.content}}</p>
+<p>{{mainlist.description}}</p>
 
 <h1>${{mainlist.price.bid}}</h1>
 <p></p>
-{% if user.is_authenticated and mainlist.isActive %}
+{% if mainlist.isActive %}
+{% if user.is_authenticated %}
 {% if currentUser != mainlist.seller %}
 <form action="{% url 'addBid' id=mainlist.id%}" method="POST">
   {%csrf_token%}
@@ -54,6 +58,13 @@
   {%csrf_token%}
   <input class="form-control" type="number" id="bid" name="bid" placeholder="Bid" min="0" disabled><br>
   <button type="submit" class="btn btn-danger">Close</button>
+</form>
+{% endif %}
+{% else %}
+<form action="{% url 'addBid' id=mainlist.id%}" method="POST">
+  {%csrf_token%}
+  <input class="form-control" type="number" id="bid" name="bid" placeholder="Bid" min="0" disabled><br>
+  <button type="submit" class="btn btn-primaryy" disabled>Place Bid</button>
 </form>
 {% endif %}
 {% endif %}
@@ -95,7 +106,7 @@
     {%if currentUser == comment.usercomment%}
     <form action="{% url 'deletecomment' comid=comment.id reqid=mainlist.id %}" method="POST">
       {%csrf_token%}
-      <button type="submit" class="btn">Delete comment</button>
+      <button type="submit" class="btn btn-danger">Delete comment</button>
     </form>
 
     {% endif %}

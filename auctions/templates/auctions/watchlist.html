@@ -13,8 +13,9 @@
   <div class="card mx-3" style="width: 18rem;">
     <img class="card-img-top" src="{{list.imageUrl}}" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">{{list.title}}</h5>
-        <p class="card-text">{{list.content}}</p>
+        <h4 class="card-title">{{list.title}}</h4>
+        <h6 class="card-title">${{list.price.bid}}</h6>
+        <p class="card-text">{{list.description}}</p>
         {{list.date_modified}}
         <br>
         <div class="link">
