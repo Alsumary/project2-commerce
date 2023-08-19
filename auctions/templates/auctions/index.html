@@ -7,22 +7,6 @@
         <h3>{{titleofpage}}</h3>
     </div>
 </div>
-<!-- <h2>Active Listings</h2> -->
-
-<!-- <label for="category">
-    <h5>Category : </h5>
-</label>
- <form action="{% url 'displayCategory' %}" method="POST">
-    {%csrf_token%}
-    <select name="category" id="category" class="custom-select custom-select-sm">
-        {% for category in categories %}
-        <option value="{{category}}">{{category}}</option>
-        {% endfor %}
-    </select>
-    <br><br>
-    <button type="submit" class="btn btn-primaryy btn-sm">Filter</button>
-</form> 
-<div class="cathr"></div> -->
 <div class="row mx-3">
     {% for list in lists %}
     {%if list.isActive %}
@@ -30,7 +14,7 @@
         <img class="card-img-top" src="{{list.imageUrl}}" alt="Card image cap">
         <div class="card-body">
             <h4 class="card-title">{{list.title}}</h4>
-            <h6 class="card-title">${{list.price.bid}}</h6>
+            <h6 class="card-title price">${{list.price.bid}}</h6>
             <p class="card-text">{{list.description}}</p>
             {{list.date_modified}}
             <br>

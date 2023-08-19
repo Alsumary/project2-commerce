@@ -21,6 +21,11 @@ body {
     padding: 0;
 }
 
+.price {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
 .nav1 {
     display: flex;
     flex-direction: row;

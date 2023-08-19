@@ -129,9 +129,11 @@ def addBid(request, id):
 def winnersPage(request):
     lists = Listing.objects.all()
     swinnerPages = winnerPages.objects.all()
+    currentUser = request.user
     return render(request, "auctions/winnersPage.html", {
         'lists': lists,
-        'winnerPages': swinnerPages
+        'winnerPages': swinnerPages,
+        'currentUser': currentUser
     })
 
 
