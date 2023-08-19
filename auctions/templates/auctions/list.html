@@ -80,14 +80,20 @@
     <h5>Comment : </h5>
   </label>
   {% if mainlist.isActive %}
+  {% if user.is_authenticated%}
   <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment" maxlength="100">
   <br>
   <button type="submit" class="btn btn-primaryy">Comment</button>
+  {% else %}
+  <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment" maxlength="100" disabled>
+  <br>
+  <button type="submit" class="btn btn-primaryy" disabled>Comment</button>
+  {% endif %}
   {%elif not mainlist.isActive%}
   <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment" maxlength="100" disabled>
   <br>
   <button type="submit" class="btn btn-primaryy" disabled>Comment</button>
-  {%endif%}
+  {% endif %}
 </form>
 <hr>
 <h1>{{maincomment.id}}</h1>
